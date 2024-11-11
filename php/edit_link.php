@@ -181,3 +181,6 @@ if ($_POST) { // Check if the form has been submitted
         AOS.init(); // Initialize AOS
     </script>
 
+</body>
+
+</html>
