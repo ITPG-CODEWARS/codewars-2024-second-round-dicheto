@@ -101,6 +101,7 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
             <?php if (count($links) == 0) { ?> <!-- Check if there are no links -->
                 <p class="text-center my-3">Нямате линкове свързани с акаунта ви</p> <!-- Message for no links -->
             <?php } ?>
+
             <?php foreach ($links as $link): ?> <!-- Loop through each link -->
                 <li class="dashboard_link-list my-3" style="word-wrap: break-word;"> <!-- List item for each link -->
                     <div class="row"> <!-- Row for link details -->
@@ -119,5 +120,23 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
                                     name="trash-outline"></ion-icon></a> <!-- Delete link icon -->
                         </div>
                     </div>
+                    <div id="info-<?php echo $link['id']; ?>" class="collapse p-3 dashboard_link-listDetails">
+                        <!-- Collapsible details for each link -->
+                        <p><strong>Дълъг линк:</strong> <?php echo htmlspecialchars($link['original_url']); ?></p>
+                        <!-- Display original link -->
+                        <p><strong>Кратък код:</strong> <?php echo htmlspecialchars($link['short_code']); ?></p>
+                        <!-- Display short code -->
+                        <p><strong>Срок за използване:</strong>
+                            <?php echo $link['expires_at'] !== "0000-00-00 00:00:00" ? htmlspecialchars($link['expires_at']) : 'Без срок'; ?>
+                        </p> <!-- Display expiration date -->
+                        <p><strong>Лимит за използване:</strong>
+                            <?php echo $link['usage_limit'] ? htmlspecialchars($link['usage_limit']) : 'Без лимит'; ?></p>
+                        <!-- Display usage limit -->
+                        <p><strong>Парола:</strong> <?php echo $link['password_hash'] ? 'Има' : 'Няма'; ?></p>
+                        <!-- Display password status -->
+                        <p><strong>Брой кликвания:</strong> <?php echo htmlspecialchars($link['click_count']); ?></p>
+                        <!-- Display click count -->
+                    </div>
+                </li>
             <?php endforeach; ?>
 
