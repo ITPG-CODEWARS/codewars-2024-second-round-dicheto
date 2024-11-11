@@ -140,3 +140,7 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
                 </li>
             <?php endforeach; ?>
 
+            <a href="../index.php" class="btn-submit mt-4 d-flex justify-content-center" style="color: #fff;">Върни ме у
+                дома</a> <!-- Button to return home -->
+        </div>
+    </div>
