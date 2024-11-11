@@ -138,6 +138,23 @@ if ($_POST) { // Check if the form has been submitted
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.8"></script> <!-- Script for floating UI -->
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.12"></script> <!-- Script for floating UI DOM -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> <!-- Bootstrap JavaScript bundle -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Ionicons ES module -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Ionicons fallback for non-module browsers -->
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]') // Selects all elements with tooltip data attribute
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)) // Initializes Bootstrap tooltips for selected elements
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Script for AOS functionality -->
+    <script>
+        AOS.init(); // Initializes AOS for animations on scroll
+    </script>
 </body>
 
 </html>
