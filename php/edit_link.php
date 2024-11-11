@@ -51,3 +51,52 @@ if ($_POST) { // Check if the form has been submitted
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Link to AOS (Animate On Scroll) CSS -->
 
 </head>
+
+<body class="index"> <!-- Body class for styling -->
+    <div data-aos="fade-up" data-aos-duration="1500"
+        class="d-flex w-75 my-5 mx-auto box-shadow-custom border-custom justify-content-end row">
+        <!-- Flex container for layout -->
+        <div class="col-12 col-lg d-flex align-items-center justify-content-center"> <!-- Column for home icon -->
+            <a href="../index.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                data-bs-title="Начало" data-bs-custom-class="custom-tooltip"
+                class="header_icon d-flex align-items-center justify-content-center menu-item-hover"
+                style="color: #fff;"> <!-- Home link -->
+                <ion-icon name="home-outline" class="me-1"></ion-icon> <!-- Home icon -->
+            </a>
+        </div>
+        <div class="col-12 col-lg d-flex align-items-center justify-content-center"> <!-- Column for welcome message -->
+            <p style="color: white;" class="text-center m-0 welcomeGreeting"> <!-- Welcome message paragraph -->
+                <?php if (isset($_SESSION['user_id'])) { // Check if user is logged in
+                        echo $result_welcomeGreeting . ", " . htmlspecialchars($_SESSION['first_name']) . ' ' . htmlspecialchars($_SESSION['last_name']); // Display welcome message with user's name
+                    } else {
+                        echo $result_welcomeGreeting . "!"; // Display welcome message for guests
+                    } ?>
+            </p>
+        </div>
+        <div class="col-12 col-lg d-flex justify-content-around"> <!-- Column for navigation links -->
+            <?php if (!isset($_SESSION['user_id'])): // If user is not logged in ?>
+                <a href="/php/register.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Регистрация" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover d-flex align-items-center justify-content-center"
+                    style="color: #fff;"> <!-- Registration link -->
+                    <ion-icon name="person-circle-outline" class="mt-4 mb-3"></ion-icon> <!-- Registration icon -->
+                </a>
+            <?php endif ?>
+            <?php if (isset($_SESSION['user_id'])): // If user is logged in ?>
+                <a href="/php/dashboard.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Вашите линкове" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover d-flex align-items-center" style="color: #fff;">
+                    <!-- Dashboard link -->
+                    <ion-icon name="clipboard-outline" class="me-1"></ion-icon><span class="menu-item"></span>
+                    <!-- Dashboard icon -->
+                </a>
+                <a href="/php/logout.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Изход" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover ms-4 d-flex align-items-center" style="color: #fff;">
+                    <!-- Logout link -->
+                    <ion-icon name="exit-outline" class="me-1"></ion-icon><span class="menu-item"></span>
+                    <!-- Logout icon -->
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
