@@ -1,0 +1,180 @@
+@media (max-width:500px) {
+    .w-50 {
+        width: 75% !important;
+    }
+}
+body {
+    background: linear-gradient(300deg, #00796b, #004d80, #009688);
+    background-size: 180% 180%;
+    animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.index form {
+    width: 75%;
+    margin: auto;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+
+    
+}
+.box-shadow-custom {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.border-custom {
+    border-radius: 30px;
+}
+
+.Input-text {
+    display: block;
+    margin: 0;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--inputFontSize);
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    transition: box-shadow var(--transitionDuration);
+}
+
+.additionalOptions_a {
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.index_submit {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.index form input {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-right: calc(1.5em + .75rem);
+    border-radius: 10px;
+    height: 50px;
+    border: 1px solid gray;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit {
+    border: 2px solid #0074ba;
+    background-color: #0074ba;
+    color: white;
+    font-size: 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: auto;
+    padding: 10px 10px;
+    transition: all 0.5s;
+}
+.btn-submit:hover {
+    background-color: #005a7a;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.header_icon ion-icon {
+    font-size: 30px;
+    margin: 30px 10px;
+
+}
+
+.header_icon {
+    color: black;
+    text-decoration: none;
+    text-align: start;
+    line-height: 1;
+}
+
+.menu-item {
+    opacity: 0;
+    transition: opacity 0s ease-in 600ms, opacity 600ms;
+    position: relative;
+}
+
+.menu-item:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: width 600ms;
+}
+
+.menu-item-hover:hover .menu-item {
+    opacity: 1;
+    transition: opacity 0s ease-in 600ms, opacity 600ms;
+}
+
+a.menu-item-hover:hover .header_icon-text {
+    opacity: 1;
+    max-height: fit-content;
+    transition: opacity 0.2s ease-in;
+}
+
+.header_icon-text {
+    opacity: 0;
+}
+
+.dashboard_link-list {
+    list-style: none;
+    padding: 10px 15px;
+    border: 1px solid #004d80;
+    border-radius: 30px;
+}
+.dashboard_link-list-details {
+    border: 1px solid #004d80;
+    border-radius: 30px;
+    word-wrap: break-word;
+}
+
+.welcomeGreeting {
+    font-weight: bolder;
+}
+.custom-tooltip {
+    --bs-tooltip-bg: transperent !important;
+    --tooltip-arrow-width: 0;
+}
+.tooltip-arrow {
+    visibility: hidden !important;
+}
+.additionalOptions_a {
+    color: black;
+}
+.dashboard a {
+    color: black;
+    text-decoration: none;
+}
+html {
+    height: 100%;
+}
+.border-custom {
+    transition: all 0.5s;
+}
