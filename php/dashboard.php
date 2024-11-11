@@ -101,8 +101,23 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
             <?php if (count($links) == 0) { ?> <!-- Check if there are no links -->
                 <p class="text-center my-3">Нямате линкове свързани с акаунта ви</p> <!-- Message for no links -->
             <?php } ?>
+            <?php foreach ($links as $link): ?> <!-- Loop through each link -->
+                <li class="dashboard_link-list my-3" style="word-wrap: break-word;"> <!-- List item for each link -->
+                    <div class="row"> <!-- Row for link details -->
+                        <div class="col-10"> <!-- Column for original URL -->
+                            <a href="#info-<?php echo $link['id']; ?>" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false"><?php echo htmlspecialchars($link['original_url']); ?></a>
+                            <!-- Link to original URL -->
+                        </div>
+                        <div class="col-1 px-0"> <!-- Column for edit button -->
+                            <a href="/php/edit_link.php?id=<?php echo $link['id']; ?>" class="edit-btn me-auto"><ion-icon
+                                    name="create-outline"></ion-icon></a> <!-- Edit link icon -->
+                        </div>
                         <div class="col-1 px-0"> <!-- Column for delete button -->
                             <a href="/php/dashboard.php?delete_id=<?php echo $link['id']; ?>" class="delete-btn"
                                 onclick="return confirm('Сигурни ли сте, че искате да изтриете този линк?');"><ion-icon
                                     name="trash-outline"></ion-icon></a> <!-- Delete link icon -->
                         </div>
+                    </div>
+            <?php endforeach; ?>
+
