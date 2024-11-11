@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# Пренасочва всички URL заявки към redirect.php и подава short_code като GET параметър
+RewriteRule ^([a-zA-Z0-9]+)$ redirect.php?code=$1 [L]
