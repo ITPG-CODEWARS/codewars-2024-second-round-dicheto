@@ -100,3 +100,9 @@ if ($_POST) { // Check if the form has been submitted
             <?php endif; ?>
         </div>
     </div>
+    <form data-aos="fade-up" data-aos-duration="1500" class="box-shadow-custom border-custom" method="POST"
+        action="/php/edit_link.php?id=<?php echo $linkId; ?>"> <!-- Form for editing link -->
+        <div class="p-5 mt-5 text-center"> <!-- Form container -->
+            <h1 class="text-center mb-2 ">Редактиране на линк</h1> <!-- Form title -->
+        </div>
+    </form>
