@@ -92,3 +92,13 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
         class="my-5 dashboard container align-items-center d-flex justify-content-center"> <!-- Dashboard container -->
         <div class="w-75 p-4 bg-white border-custom box-shadow-custom"> <!-- Main content area -->
             <h2 class="text-center">Моите линкове</h2> <!-- Section title -->
+
+            <?php if (isset($deleteMessage)): ?> <!-- Check if delete message is set -->
+                <p class="text-center my-3" style="color: green;"><?php echo $deleteMessage; ?></p>
+                <!-- Display delete message if set -->
+            <?php endif; ?>
+                        <div class="col-1 px-0"> <!-- Column for delete button -->
+                            <a href="/php/dashboard.php?delete_id=<?php echo $link['id']; ?>" class="delete-btn"
+                                onclick="return confirm('Сигурни ли сте, че искате да изтриете този линк?');"><ion-icon
+                                    name="trash-outline"></ion-icon></a> <!-- Delete link icon -->
+                        </div>
