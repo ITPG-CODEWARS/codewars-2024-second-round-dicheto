@@ -1,5 +1,9 @@
 <?php
 
+// Include the configuration file for database connection
+require '../config.php'; // Load database configuration settings
+// Include the time-related functions
+include '../php/time.php'; // Load custom time functions
 
 // Check if the form has been submitted
 if ($_POST) { // Proceed if the form is submitted
