@@ -144,3 +144,21 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
                 дома</a> <!-- Button to return home -->
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script> <!-- Link to Bootstrap JS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Link to Ionicons ES module -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Link to Ionicons non-module -->
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]') // Select all elements with tooltip
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)) // Initialize Bootstrap tooltips
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Link to AOS JS -->
+    <script>
+        AOS.init(); // Initialize AOS (Animate On Scroll) library
+    </script>
+</body>
+
+</html>
