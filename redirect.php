@@ -122,3 +122,22 @@ if ($shortCode) { // Check if a short code was provided
             } ?>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> <!-- Link to Bootstrap JS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Link to Ionicons -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Fallback for older browsers -->
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]') // Select all elements with tooltip
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)) // Initialize Bootstrap tooltips
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Link to AOS JS -->
+    <script>
+        AOS.init(); // Initialize AOS animations
+    </script>
+</body>
+
+</html>
