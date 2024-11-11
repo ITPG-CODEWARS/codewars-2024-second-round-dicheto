@@ -87,3 +87,8 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all links as an associative
             <?php endif; ?>
         </div>
     </div>
+
+    <div data-aos="fade-up" data-aos-duration="1500"
+        class="my-5 dashboard container align-items-center d-flex justify-content-center"> <!-- Dashboard container -->
+        <div class="w-75 p-4 bg-white border-custom box-shadow-custom"> <!-- Main content area -->
+            <h2 class="text-center">Моите линкове</h2> <!-- Section title -->
