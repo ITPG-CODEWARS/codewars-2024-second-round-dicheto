@@ -59,3 +59,66 @@ if ($shortCode) { // Check if a short code was provided
     $result_title = "Не е предоставен линк"; // Set message for no code provided
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Set character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Login</title> <!-- Page title -->
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Link to AOS CSS -->
+</head>
+
+<body class="index"> <!-- Body class for styling -->
+    <div data-aos="fade-up" data-aos-duration="1500"
+        class="d-flex w-75 my-5 border-custom box-shadow-custom mx-auto justify-content-end row">
+        <!-- Main container with animations -->
+        <div class="col-12 col-lg d-flex align-items-center justify-content-center"><a href="index.php"
+                data-bs-toggle="tooltip" data-bs-placement="right" role="button" data-bs-title="Home"
+                data-bs-custom-class="custom-tooltip"
+                class="header_icon d-flex align-items-center justify-content-center menu-item-hover "
+                style="color: #fff;"><ion-icon name="home-outline" class="me-1"></ion-icon></a></div>
+        <div class="col-12 col-lg d-flex align-items-center justify-content-center">
+            <p style="color: white;" class="text-center m-0 welcomeGreeting"><?php if (isset($_SESSION['user_id'])) {
+                echo $result_welcomeGreeting . ", " . htmlspecialchars($_SESSION['first_name']) . ' ' . htmlspecialchars($_SESSION['last_name']);
+            } else {
+                echo $result_welcomeGreeting . "!";
+            } ?></p> <!-- Display welcome message -->
+        </div>
+        <div class="col-12 col-lg d-flex justify-content-around">
+            <?php if (!isset($_SESSION['user_id'])): ?>
+                <a href="/php/register.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Register" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover d-flex align-items-center justify-content-center"
+                    style="color: #fff;"><ion-icon name="person-circle-outline" class="mt-4 mb-3"></ion-icon></a>
+
+            <?php endif ?>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <a href="/php/dashboard.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Your Links" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover d-flex align-items-center" style="color: #fff;"><ion-icon
+                        name="clipboard-outline" class="me-1"></ion-icon><span class="menu-item"></span></a>
+                <a href="/php/logout.php" data-bs-toggle="tooltip" data-bs-placement="right" role="button"
+                    data-bs-title="Logout" data-bs-custom-class="custom-tooltip"
+                    class="header_icon menu-item-hover ms-4 d-flex align-items-center" style="color: #fff;"><ion-icon
+                        name="exit-outline" class="me-1"></ion-icon><span class="menu-item"></span></a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="mb-5 container align-items-center  d-flex justify-content-center">
+        <div data-aos="fade-up" data-aos-duration="1500" class="w-40 p-4 bg-white box-shadow-custom border-custom">
+
+            <h2 class="text-center"><?php echo $result_title; ?></h2> <!-- Display result title -->
+            <?php if (isset($result_passwordincorrect)) {
+                echo $result_passwordincorrect; // Display incorrect password message
+            } ?>
+            <?php if (isset($result_password)) {
+                echo $result_password; // Display password input form
+            } ?>
+        </div>
+    </div>
