@@ -104,5 +104,61 @@ if ($_POST) { // Check if the form has been submitted
         action="/php/edit_link.php?id=<?php echo $linkId; ?>"> <!-- Form for editing link -->
         <div class="p-5 mt-5 text-center"> <!-- Form container -->
             <h1 class="text-center mb-2 ">Редактиране на линк</h1> <!-- Form title -->
+            <?php if (isset($result_edit)) {
+                echo $result_edit; // Display result message if set
+            }
+            $result_edit = "" ?>
+            <div class="<?php if (isset($disabled)) {
+                echo $disabled; // Apply disabled class if set
+            }
+            $disabled = "" ?>">
+                <input type="url" name="original_url" class="mx-auto <?php if (isset($disabled)) {
+                    echo $disabled; // Apply disabled class if set
+                }
+                $disabled = "" ?>" value="<?php echo htmlspecialchars($link['original_url']) ?? null; ?>"
+                    placeholder="Нов линк?" required> <!-- Input for new URL -->
+                <a href="#additionalOptionsCollapse" data-bs-toggle="collapse"
+                    class="d-flex justify-content-center my-3 align-items-center additionalOptions_a"><ion-icon
+                        name="chevron-down-circle-outline"></ion-icon> Допълнителни опции</a>
+                <!-- Link to additional options -->
+                <div class="collapse" id="additionalOptionsCollapse">
+                    <!-- Collapsible section for additional options -->
+                    <div class="row mb-4 gap-4"> <!-- Row for additional options -->
+                        <div class="col-12 col-md justify-content-center"> <!-- Column for expiration date -->
+                            <p class="text-center">Дата на изтичане <ion-icon class="ms-1"
+                                    name="arrow-down-outline"></ion-icon></p> <!-- Expiration date label -->
+                            <div class="d-flex justify-content-center">
+                                <input class="w-auto" type="datetime-local"
+                                    value="<?php echo htmlspecialchars($link['expires_at']); ?>" name="expires_at">
+                                <!-- Input for expiration date -->
+                            </div>
+                        </div>
+                        <div class="col-12 col-md justify-content-center"> <!-- Column for password protection -->
+                            <p class="text-center">Защита с парола <ion-icon class="ms-1"
+                                    name="arrow-down-outline"></ion-icon></p> <!-- Password protection label -->
+                            <div class="d-flex justify-content-center">
+                                <input class="w-auto" type="password" name="password"
+                                    placeholder="Въведете нова или оставете празно"> <!-- Input for new password -->
+                            </div>
+                        </div>
+                        <div class="col-12 col-md justify-content-center"> <!-- Column for usage limit -->
+                            <p class="text-center">Лимит на използване<ion-icon class="ms-1"
+                                    name="arrow-down-outline"></ion-icon></p> <!-- Usage limit label -->
+                            <div class="d-flex justify-content-center">
+                                <input class="w-auto" type="number" name="usage_limit"> <!-- Input for usage limit -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-md-flex mx-auto text-center d-block align-items-center justify-content-center">
+                    <!-- Button container -->
+                    <button href="" type="submit"
+                        class="btn-submit m-0 me-md-3 mx-auto mx-md-0 d-flex align-items-center"><ion-icon
+                            name="link-outline" class="me-1"></ion-icon> Записване на промените</button>
+                    <!-- Submit button -->
+                    <a href="/php/dashboard.php" class="mt-4 mt-md-0"
+                        style="color: black; text-decoration:none;">Откажи</a> <!-- Cancel link -->
+                </div>
+            </div>
         </div>
     </form>
