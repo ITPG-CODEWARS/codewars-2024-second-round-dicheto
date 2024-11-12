@@ -20,7 +20,9 @@ if ($_POST) { // Check if the form has been submitted
         $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, username, password_hash) VALUES (?, ?, ?, ?)"); // Prepare SQL statement to insert new user
         $stmt->execute([$firstName, $lastName, $username, $password]); // Execute the statement with user data
 
-        $_SESSION['user_id'] = $pdo->lastInsertId(); // Store the new user's ID in the session
+        $_SESSION['user_id'] = $pdo->lastInsertId();
+        $_SESSION['first_name'] = $firstName;
+        $_SESSION['last_name'] = $lastName; // Store the new user's ID in the session
         header("Location: ../index.php"); // Redirect to the index page after successful registration
         exit(); // Terminate the script
     }
