@@ -21,6 +21,8 @@ if ($_POST) { // Check if the form has been submitted
         $stmt->execute([$firstName, $lastName, $username, $password]); // Execute the statement with user data
 
         $_SESSION['user_id'] = $pdo->lastInsertId(); // Store the new user's ID in the session
+        $_SESSION['first_name'] = $_POST['first_name']; // Store user's first name in session
+        $_SESSION['last_name'] = $_POST['last_name']; // Store user's last name in session
         header("Location: ../index.php"); // Redirect to the index page after successful registration
         exit(); // Terminate the script
     }

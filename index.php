@@ -31,7 +31,7 @@ include './php/time.php'; // Include the time-related functions
         </div>
         <div class="col-12 col-lg d-flex align-items-center justify-content-center">
             <p style="color: white;" class="text-center m-0 welcomeGreeting">
-                <?php if (isset($_SESSION['user_id'])) { // Check if user is logged in
+                <?php if (isset($_SESSION['user_id']) && isset($_SESSION('first_name'))) { // Check if user is logged in
                         echo $result_welcomeGreeting . ", " . htmlspecialchars($_SESSION['first_name']) . ' ' . htmlspecialchars($_SESSION['last_name']); // Display welcome message with user's name
                     } else {
                         echo $result_welcomeGreeting . "!"; // Display welcome message for guests
